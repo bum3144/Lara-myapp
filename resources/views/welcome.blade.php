@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Framework 6.17.1
                 </div>
 
                 <div class="links">
