@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Framework 6.17.1
+                    Laravel Framework 6.17.1 <br>
+                    <h3><?= isset($greeting) ? "{$greeting} " : 'hello';?><?=$name;?></h3>
                 </div>
 
                 <div class="links">

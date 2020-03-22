@@ -27,13 +27,34 @@
 //     return $foo;
 // })->where('foo', '[0-9,a-z,A-Z]{3}');
 
-# 라우트 리다이렉션
-Route::get('/', [
-    'as' => 'home',
-    function () {
-        return '안녕 "home" 만나서 반가워';
-    }
-]);
-Route::get('/home', function () {
-    return redirect(route('home'));
+// # 라우트 리다이렉션
+// Route::get('/', [
+//     'as' => 'home',
+//     function () {
+//         return '안녕 "home" 만나서 반가워';
+//     }
+// ]);
+// Route::get('/home', function () {
+//     return redirect(route('home'));
+// });
+
+# 데이터 바인딩 1 (with)
+// Route::get('/', function () {
+//     return view('welcome')->with('name', 'Foo1');
+// });
+
+# 데이터 바인딩 2 (with)
+// Route::get('/', function () {
+//     return view('welcome')->with([
+//         'name' => 'Foo2', 
+//         'greeting' => 'Hellowith'
+//         ]);
+// });
+
+# 데이터 바인딩 3 (view) - 보편적인 방법
+Route::get('/', function () {
+    return view('welcome', [
+        'name' => 'Foo3', 
+        'greeting' => 'Helloview'
+        ]);
 });
