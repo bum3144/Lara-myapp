@@ -52,9 +52,22 @@
 // });
 
 # 데이터 바인딩 3 (view) - 보편적인 방법
+// Route::get('/', function () {
+//     return view('welcome', [
+//         'name' => 'Foo3', 
+//         'greeting' => 'Helloview'
+//         ]);
+// });
+
+// # blade 조건문, 반복문 (if, foreach, forelse)
+// Route::get('/', function() {
+//     // $items = ['apple', 'banana', 'tomato'];
+//     $items = [];
+
+//     return view('welcome', ['items' => $items]);
+// });
+
+# 템플릿 상속
 Route::get('/', function () {
-    return view('welcome', [
-        'name' => 'Foo3', 
-        'greeting' => 'Helloview'
-        ]);
+    return view('welcome');
 });
