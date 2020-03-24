@@ -67,7 +67,8 @@
 //     return view('welcome', ['items' => $items]);
 // });
 
-# 템플릿 상속
-Route::get('/', function () {
-    return view('welcome');
-});
+# / 라우트의 처리 로직을 'WelcomeController@index'로 연결
+# WelcomeController의 index() 메서드에 이 요청의 처리를 위임한다는 뜻
+Route::get('/', 'WelcomeController@index');
+
+Route::resource('articles', 'ArticlesController');

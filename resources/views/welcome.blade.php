@@ -8,13 +8,13 @@
     @endsection
 
     @section('content')
-        <p>Hello~ I am a Child View 'Content' section.</p>
+        <p>Hello~ I am a Child View 'Content' section.(content)</p>
         
         @include('partials.footer')
     @endsection
 
     @section('script')
         <script>
-            alert("Hello. I am a Child View 'script' section.")
+            document.write("<p>Hello. I am a Child View 'script' section. (welcome.blade-script)</p>")
         </script>
     @endsection
