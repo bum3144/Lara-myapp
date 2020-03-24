@@ -11,62 +11,6 @@
 |
 */
 
-# 기본 라우트
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-# 아라비아 숫자, 영대소문자로 구성된 세 자리 글자로 한정 예
-// Route::pattern('foo', '[0-9,a-z,A-Z]{3}');
-// Route::get('/{foo?}', function ($foo = 'bar'){
-//     return $foo;
-// });
-
-# where() 메서드를 체인할 수도 있다.
-// Route::get('/{foo?}', function ($foo = 'bar') {
-//     return $foo;
-// })->where('foo', '[0-9,a-z,A-Z]{3}');
-
-// # 라우트 리다이렉션
-// Route::get('/', [
-//     'as' => 'home',
-//     function () {
-//         return '안녕 "home" 만나서 반가워';
-//     }
-// ]);
-// Route::get('/home', function () {
-//     return redirect(route('home'));
-// });
-
-# 데이터 바인딩 1 (with)
-// Route::get('/', function () {
-//     return view('welcome')->with('name', 'Foo1');
-// });
-
-# 데이터 바인딩 2 (with)
-// Route::get('/', function () {
-//     return view('welcome')->with([
-//         'name' => 'Foo2', 
-//         'greeting' => 'Hellowith'
-//         ]);
-// });
-
-# 데이터 바인딩 3 (view) - 보편적인 방법
-// Route::get('/', function () {
-//     return view('welcome', [
-//         'name' => 'Foo3', 
-//         'greeting' => 'Helloview'
-//         ]);
-// });
-
-// # blade 조건문, 반복문 (if, foreach, forelse)
-// Route::get('/', function() {
-//     // $items = ['apple', 'banana', 'tomato'];
-//     $items = [];
-
-//     return view('welcome', ['items' => $items]);
-// });
-
 # / 라우트의 처리 로직을 'WelcomeController@index'로 연결
 # WelcomeController의 index() 메서드에 이 요청의 처리를 위임한다는 뜻
 Route::get('/', 'WelcomeController@index');
@@ -86,18 +30,52 @@ Route::get('auth/login', function() {
     return redirect('protected');
 });
 
-Route::get('protected', function() {
-    dump(session()->all());
+// Route::get('protected', function() {
+//     dump(session()->all());
 
-    if(! auth()->check()){
-        return '누구세요??';
-    }
+//     if(! auth()->check()){
+//         return '누구세요??';
+//     }
 
-    return '어서오세요' . auth()->user()->name;
-});
+//     return '어서오세요' . auth()->user()->name;
+// });
+
+// if절을 사용하지 않고 사용자를 안전하게 다른 위치로 이동시킬 수 있는 방법은 auth 미들웨어다
+// auth 미들웨어는 라라벨에 기본적으로 포함되있다. 라우트마다 적용한다고 해서 라우트 미들웨어라고 부른다. 
+Route::get('protected', ['middleware' => 'guest', function() {
+    // if절 삭제
+    // return '어서오세요' . auth()->user()->name;
+}]);
 
 Route::get('auth/logout', function(){
     auth()->logout();
 
     return '또 봐요~!';
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
