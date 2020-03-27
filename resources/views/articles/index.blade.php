@@ -20,7 +20,7 @@
 
 @if($articles->count())
     <div class="text-center"> <!-- paging way 2-->
-       {{ $articles->links() }}
+       {!! $articles->links() !!}
     </div>
 @endif
 
