@@ -41,4 +41,15 @@ class ArticlesController extends Controller
 
       return redirect(route('articles.index'))->with('flash_message', '작성하신 글이 저장되었습니다.');
    }
+
+   public function show($id)
+   {
+      $article = \App\Article::findOrFail($id); 
+      // findOrFail($id) $id에 해당하는 모델이 없으면 \Illuminate\Database\Eloquent\ModelNotFoundException 에외를 던진다
+
+      dd($article);
+
+      return $article->toArray();
+   }
+
 }
