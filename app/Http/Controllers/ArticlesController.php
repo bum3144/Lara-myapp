@@ -47,9 +47,12 @@ class ArticlesController extends Controller
       $article = \App\Article::findOrFail($id); 
       // findOrFail($id) $id에 해당하는 모델이 없으면 \Illuminate\Database\Eloquent\ModelNotFoundException 에외를 던진다
 
-      dd($article);
-
-      return $article->toArray();
+      // dd($article);
+      //return $article->toArray();
+      
+      debug($article->toArray());
+      
+      return view('articles.show', compact('article'));
    }
 
 }

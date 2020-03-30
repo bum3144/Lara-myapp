@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class, //AppServiceprovider.php에 등록하였으니 삭제한다
 
         /*
          * Package Service Providers...
