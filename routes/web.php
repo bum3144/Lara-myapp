@@ -70,6 +70,7 @@ Route::get('docs/{file?}', function ($file = null) {
     return app(ParsedownExtra::class)->text($text);
 });
 
+Route::get('docs/{file?}', 'DocsController@show');
 
 //DB::listen(function ($query) {
 //    var_dump($query->sql);
