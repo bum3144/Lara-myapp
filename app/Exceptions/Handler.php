@@ -50,13 +50,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+       // dd(app()->environment());
         // app() 도우미 인자 없이 쓰면 \Illuminate\Foundation\Application 객체를 얻을 수 있다.
         if (app()->environment('production')){ // environment() 메서드 인자로 받은 문자열과 현재의 실행 환경과 비교. 같으면 true 
            $statusCode = 400;
            $title = '죄송합니다. :(';
            $description = '에러가 발생했습니다.';
-           dd($code);
-            if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException 
+
+           if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException 
                 or $exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException){ // instanceof 객체 타입 검사
                     $statusCode = 404;    
 

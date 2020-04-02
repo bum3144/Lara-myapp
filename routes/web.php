@@ -27,10 +27,11 @@ Route::get('mail', function(){
         compact('article'), // 뷰에 전달할 데이터
         // 클로저는 Illuminate\Mail\Message $message 인자를 받는다
         function ($message) use ($article) { // use 는 클로저 밖에 데이터를 클로저 컨텍스트에 바인팅하는 문법
-            $message->from('ittc@ittc.kr', 'ITTC');
-            $message->to(['ittc@ittc.kr', 'bum3144@gmail.com']); // 메일 수신자
+      //      dd(storage_path('elephant.png'));
+            $message->from('ittc@example.com', 'ITTC');
+            $message->to('ittc@ittc.kr'); // 메일 수신자
             $message->subject('새 글이 등록되었습니다 - ' . $article->title); // 메일 제목
-            $message->cc('bum3144@naver.com');
+         //   $message->cc('bum3144@naver.com');
             $message->attach(storage_path('elephant.png')); //storage 디렉터리 아래에 있는 파일의 절대 경로, 첨부 파일 전송 실험
         }
 
@@ -45,32 +46,35 @@ Route::get('mail', function(){
 });
 
 
-Route::get('markdown', function(){
-    $text = <<<EOT
-    # 마크다운 예제 1
+// Route::get('markdown', function(){
+//     $text = <<<EOT
+//     # 마크다운 예제 1
 
-    이 문서는 [마크다운][1]으로 썼습니다. 화면에는 HTML로 변환되어 출력됩니다.
+//     이 문서는 [마크다운][1]으로 썼습니다. 화면에는 HTML로 변환되어 출력됩니다.
 
-    ## 순서 없는 목록
+//     ## 순서 없는 목록
 
-    - 첫 번째 항목
-    - 두번째 항목[^1]
+//     - 첫 번째 항목
+//     - 두번째 항목[^1]
 
-    [1]: http://daringfireball.net/projects/markdown
+//     [1]: http://daringfireball.net/projects/markdown
 
-    [^1]: 두 번째 항목_ http://google.com
-    EOT;
+//     [^1]: 두 번째 항목_ http://google.com
+//     EOT;
 
-    return app(ParsedownExtra::class)->text($text);
-});
+//     return app(ParsedownExtra::class)->text($text);
+// });
 
-Route::get('docs/{file?}', function ($file = null) {
-    $text = (new App\Documentation)->get($file);
+// Route::get('docs/{file?}', function ($file = null) {
+//     $text = (new App\Documentation)->get($file);
 
-    return app(ParsedownExtra::class)->text($text);
-});
+//     return app(ParsedownExtra::class)->text($text);
+// });
 
 Route::get('docs/{file?}', 'DocsController@show');
+
+Route::get('docs/images/{image}', 'DocsController@image')
+        ->where('image', '[\pL-\pN\._-]+-img-[0-9]{2}.png');
 
 //DB::listen(function ($query) {
 //    var_dump($query->sql);

@@ -1,6 +1,6 @@
-@extends ('layouts.app');
+@extends ('layouts.app')
 
-@section ('content');
+@section ('content')
 <div class="container">
     <h1>포럼 글 목록</h1>
     <hr>

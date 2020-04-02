@@ -13,17 +13,22 @@ class Documentation
     public function get($file = 'documentation.md')
     {
         $content = File::get($this->path($file));
-
+        //dd($file);
         return $this->replaceLinks($content);
     }
+
+    public function image($file)
+    {
+        // dd($file);
+        return \Image::make($this->path($file, 'docs/images'));
+    }
+
     protected function path($file, $dir = 'docs')
     {
-
-        // ends_with() X => Str::endsWith() 로 변경함
-        $file = Str::endsWith($file, '.md') ? $file : $file . '.md';
         
+        // ends_with() X => Str::endsWith() 로 변경함
+        $file = Str::endsWith($file, ['.md', '.png']) ? $file : $file . '.md';     
         $path = base_path($dir . DIRECTORY_SEPARATOR . $file);
-
         if (! File::exists($path)) {
             abort(404, '요청하신 파일이 없습니다.');
         }
@@ -36,4 +41,10 @@ class Documentation
         return str_replace('/docs/{{version}}', '/docs', $content);
     }
 
+
+    public function etag($file)
+    {
+        $lastModified = File::lastModified($this->path($file, 'docs/images'));
+        return md5($file . $lastModified);
+    }
 }
