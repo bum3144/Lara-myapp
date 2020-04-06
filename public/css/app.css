@@ -5224,7 +5224,6 @@ input[type=button].btn-block {
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
-  justify-content: center; /* 페이징 센터 정렬 */
 }
 
 .page-link {
