@@ -15,9 +15,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        \App\Events\ArticlesEvent::class => [
+            \App\Listeners\ArticlesEventListener::class,
         ],
+        \Illuminate\Auth\Events\Login::class => [ // 사용자가 로그인하면 일어나는 내장 이벤트는 Illuminate\Auth\Events\Login
+            \App\Listeners\UsersEventlistener::class
+        ], 
     ];
 
     /**
@@ -29,6 +32,10 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        \Event::listen( //첫번째 인자로 지정한 이벤트가 발생하면, 두번째 인자의 클래스에게 처리를 위임
+            \App\Events\ArticleCreated::class,
+            \App\Listeners\ArticlesEventListener::class
+    );
+
     }
 }
