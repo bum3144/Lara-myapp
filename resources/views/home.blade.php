@@ -14,6 +14,8 @@
                         </div>
                     @endif
 
+                    @include('flash::message')
+
                     You are logged in!
                 </div>
             </div>

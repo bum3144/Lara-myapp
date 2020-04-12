@@ -164,7 +164,7 @@ return [
 
 
         Intervention\Image\ImageServiceProvider::class,
-        
+        Laracasts\Flash\FlashServiceProvider::class,        
         
         // Barryvdh\Debugbar\ServiceProvider::class, //AppServiceprovider.php에 등록하였으니 삭제한다
 
@@ -233,7 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'Flash' => Laracasts\Flash\Flash::class,
     ],
 
 ];
