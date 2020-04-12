@@ -19,8 +19,12 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ArticlesEventListener::class,
         ],
         \Illuminate\Auth\Events\Login::class => [ // 사용자가 로그인하면 일어나는 내장 이벤트는 Illuminate\Auth\Events\Login
-            \App\Listeners\UsersEventlistener::class
+            \App\Listeners\UsersEventListener::class
         ], 
+    ];
+
+    protected $subscribe = [
+        \App\Listeners\UsersEventListener::class
     ];
 
     /**

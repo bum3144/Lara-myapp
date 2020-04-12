@@ -65,6 +65,7 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -82,7 +83,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel Framework 6.17.1 <br/>
-                    {{ config('app.url') }}
+                    
+                    @include('flash::message')
                 </div>
 
                 <div class="links">
