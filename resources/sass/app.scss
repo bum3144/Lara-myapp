@@ -13,16 +13,39 @@
 //   background-color: yellow;
 // }
 
-#app {
-    .docs__sidebar {
-        margin-top: 20px;
-      }
-    
-      pre {
-        background: #000000;
-        border-radius: 0;
-        color: white;
-      }
+#app-layout {
+  nav { margin-bottom: 20px; }
+
+  // footer
+  .footer__master {
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .change-lang{
+    float: right;
+    list-style: none;
+  }
+  .change-lang>li {
+    float: left;
+    border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */ 
+    font: 12px Dotum; /* 폰트 설정 - 12px의 돋움체 글씨로 표시 */
+    padding:0 10px;
+  }
+  .change-lang li:first-child{border-left:none;}
+  .since-date{ float: left; }
+  
+
+  .media-body { margin-left: 10px; }
+
+  .docs__sidebar {
+    margin-top: 20px;
+  }
+
+  pre {
+    background: #000000;
+    border-radius: 0;
+    color: white;
+  }
   
     // 이하 데일 리즈의 칼라 스킴에서 복사한 스타일시트
     .hljs {

@@ -45,4 +45,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    // 소셜 사용자를 조회하는 쿼리는 반복 사용할 가능성이 있어 쿼리스코프로 모델에 선언함
+    public function scopeSocialUser($query, $email)
+    {
+        return $query->whereEmail($email)->whereNull('password');
+    }
+
+    public function isAdmin()
+    {
+        return ($this->id === 1) ? true : false;
+    }
 }

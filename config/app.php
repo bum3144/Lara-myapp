@@ -168,6 +168,9 @@ return [
         
         // Barryvdh\Debugbar\ServiceProvider::class, //AppServiceprovider.php에 등록하였으니 삭제한다
 
+        // Socialite
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -234,6 +237,8 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Flash' => Laracasts\Flash\Flash::class,
+        
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

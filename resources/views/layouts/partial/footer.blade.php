@@ -1,11 +1,11 @@
-<footer class="container">
-  <ul class="list-inline pull-right">
+<footer class="container footer__master">
+  <ul class="list-inline pull-right change-lang">
     <li><i class="fa fa-language"></i></li>
     <li class="active">한국어</li>
     <li>English</li>
   </ul>
 
-  <div>
+  <div class="since-date">
     &copy; {{ date('Y') }}
     <a href="{{ config('project.url') }}">
       {{ config('app.name') }}

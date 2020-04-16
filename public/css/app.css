@@ -16905,160 +16905,195 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
-#app .docs__sidebar {
+#app-layout nav {
+  margin-bottom: 20px;
+}
+
+#app-layout .footer__master {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+#app-layout .change-lang {
+  float: right;
+  list-style: none;
+}
+
+#app-layout .change-lang > li {
+  float: left;
+  border-left: 1px solid #999;
+  /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+  font: 12px Dotum;
+  /* 폰트 설정 - 12px의 돋움체 글씨로 표시 */
+  padding: 0 10px;
+}
+
+#app-layout .change-lang li:first-child {
+  border-left: none;
+}
+
+#app-layout .since-date {
+  float: left;
+}
+
+#app-layout .media-body {
+  margin-left: 10px;
+}
+
+#app-layout .docs__sidebar {
   margin-top: 20px;
 }
 
-#app pre {
+#app-layout pre {
   background: #000000;
   border-radius: 0;
   color: white;
 }
 
-#app .hljs {
+#app-layout .hljs {
   display: block;
   padding: 0.5em;
   background: #36312C;
   color: #F8F8F2;
 }
 
-#app .hljs-comment,
-#app .hljs-template_comment,
-#app .hljs-javadoc {
+#app-layout .hljs-comment,
+#app-layout .hljs-template_comment,
+#app-layout .hljs-javadoc {
   color: #7A7267;
 }
 
-#app .hljs-keyword,
-#app .ruby .hljs-function .hljs-keyword,
-#app .hljs-request,
-#app .hljs-status,
-#app .nginx .hljs-title {
+#app-layout .hljs-keyword,
+#app-layout .ruby .hljs-function .hljs-keyword,
+#app-layout .hljs-request,
+#app-layout .hljs-status,
+#app-layout .nginx .hljs-title {
   color: #F2BC79;
 }
 
-#app .hljs-function .hljs-keyword,
-#app .hljs-sub .hljs-keyword,
-#app .method,
-#app .hljs-list .hljs-title {
+#app-layout .hljs-function .hljs-keyword,
+#app-layout .hljs-sub .hljs-keyword,
+#app-layout .method,
+#app-layout .hljs-list .hljs-title {
   color: #F28972;
 }
 
-#app .hljs-string,
-#app .hljs-tag .hljs-value,
-#app .hljs-cdata,
-#app .hljs-filter .hljs-argument,
-#app .hljs-attr_selector,
-#app .apache .hljs-cbracket,
-#app .hljs-date,
-#app .tex .hljs-command,
-#app .coffeescript .hljs-attribute {
+#app-layout .hljs-string,
+#app-layout .hljs-tag .hljs-value,
+#app-layout .hljs-cdata,
+#app-layout .hljs-filter .hljs-argument,
+#app-layout .hljs-attr_selector,
+#app-layout .apache .hljs-cbracket,
+#app-layout .hljs-date,
+#app-layout .tex .hljs-command,
+#app-layout .coffeescript .hljs-attribute {
   color: #F8BB39;
 }
 
-#app .hljs-subst {
+#app-layout .hljs-subst {
   color: #DAEFA3;
 }
 
-#app .hljs-regexp {
+#app-layout .hljs-regexp {
   color: #E9C062;
 }
 
-#app .hljs-title,
-#app .hljs-sub .hljs-identifier,
-#app .hljs-pi,
-#app .hljs-tag,
-#app .hljs-tag .hljs-keyword,
-#app .hljs-decorator,
-#app .hljs-shebang,
-#app .hljs-prompt {
+#app-layout .hljs-title,
+#app-layout .hljs-sub .hljs-identifier,
+#app-layout .hljs-pi,
+#app-layout .hljs-tag,
+#app-layout .hljs-tag .hljs-keyword,
+#app-layout .hljs-decorator,
+#app-layout .hljs-shebang,
+#app-layout .hljs-prompt {
   color: #1F8181;
 }
 
-#app .hljs-symbol,
-#app .ruby .hljs-symbol .hljs-string,
-#app .hljs-number {
+#app-layout .hljs-symbol,
+#app-layout .ruby .hljs-symbol .hljs-string,
+#app-layout .hljs-number {
   color: #F8BB39;
 }
 
-#app .hljs-params,
-#app .hljs-variable,
-#app .clojure .hljs-attribute {
+#app-layout .hljs-params,
+#app-layout .hljs-variable,
+#app-layout .clojure .hljs-attribute {
   color: #F2BC79;
 }
 
-#app .css .hljs-tag,
-#app .hljs-rules .hljs-property,
-#app .hljs-pseudo,
-#app .tex .hljs-special {
+#app-layout .css .hljs-tag,
+#app-layout .hljs-rules .hljs-property,
+#app-layout .hljs-pseudo,
+#app-layout .tex .hljs-special {
   color: #1F8181;
 }
 
-#app .css .hljs-class {
+#app-layout .css .hljs-class {
   color: #F2BC79;
 }
 
-#app .hljs-rules .hljs-keyword {
+#app-layout .hljs-rules .hljs-keyword {
   color: #F2BC79;
 }
 
-#app .hljs-rules .hljs-value {
+#app-layout .hljs-rules .hljs-value {
   color: #1F8181;
 }
 
-#app .css .hljs-id {
+#app-layout .css .hljs-id {
   color: #8B98AB;
 }
 
-#app .hljs-annotation,
-#app .apache .hljs-sqbracket,
-#app .nginx .hljs-built_in {
+#app-layout .hljs-annotation,
+#app-layout .apache .hljs-sqbracket,
+#app-layout .nginx .hljs-built_in {
   color: #9B859D;
 }
 
-#app .hljs-preprocessor,
-#app .hljs-pragma {
+#app-layout .hljs-preprocessor,
+#app-layout .hljs-pragma {
   color: #8996A8;
 }
 
-#app .hljs-hexcolor,
-#app .css .hljs-value .hljs-number {
+#app-layout .hljs-hexcolor,
+#app-layout .css .hljs-value .hljs-number {
   color: #DD7B3B;
 }
 
-#app .css .hljs-function {
+#app-layout .css .hljs-function {
   color: #DAD085;
 }
 
-#app .diff .hljs-header,
-#app .hljs-chunk,
-#app .tex .hljs-formula {
+#app-layout .diff .hljs-header,
+#app-layout .hljs-chunk,
+#app-layout .tex .hljs-formula {
   background-color: #0E2231;
   color: #F8F8F8;
   font-style: italic;
 }
 
-#app .diff .hljs-change {
+#app-layout .diff .hljs-change {
   background-color: #4A410D;
   color: #F8F8F8;
 }
 
-#app .hljs-addition {
+#app-layout .hljs-addition {
   background-color: #253B22;
   color: #F8F8F8;
 }
 
-#app .hljs-deletion {
+#app-layout .hljs-deletion {
   background-color: #420E09;
   color: #F8F8F8;
 }
 
-#app .coffeescript .javascript,
-#app .javascript .xml,
-#app .tex .hljs-formula,
-#app .xml .javascript,
-#app .xml .vbscript,
-#app .xml .css,
-#app .xml .hljs-cdata {
+#app-layout .coffeescript .javascript,
+#app-layout .javascript .xml,
+#app-layout .tex .hljs-formula,
+#app-layout .xml .javascript,
+#app-layout .xml .vbscript,
+#app-layout .xml .css,
+#app-layout .xml .hljs-cdata {
   opacity: 0.5;
 }
 

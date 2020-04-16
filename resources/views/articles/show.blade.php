@@ -1,22 +1,56 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>
-      {{ $article->title }}
-    </h1>
+  
+  <div class="page-header">
+    <h4>포럼<small> / {{ $article->title }}</small></h4>
+  </div>  
+  <hr/>
 
-    <hr/>
+  <article data-id="{{ $article->id }}">
+    @include('articles.partial.article', compact('article'))
 
-    <article>
-      {!! app(ParsedownExtra::class)->text($article->content) !!}
-      <hr />
-      <p><i>입력된 내용에서 줄바꿈이 유지되길 원할 때 "nl2br" 사용</i></p>
-      {!! nl2br( app(ParsedownExtra::class)->text($article->content) ) !!}
-      <small>
-        by {{ $article->user->name }}
-        {{ $article->created_at->diffForHumans() }}
-      </small>
-    </article>
-</div>
+    <p>{!! nl2br(  markdown($article->content) ) !!}</p>    <hr />    
+  </article>
+
+  <div class="text-right action__article">
+  @can('update', $article)
+    <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-info">
+      <i class="fa fa-pencil"></i> 글 수정
+    </a>
+  @endcan
+  @can('delete', $article)
+    <button class="btn btn-danger button__delete">
+      <i class="fa fa-trash-o"></i> 글 삭제
+    </button>
+  @endcan
+    <a href="{{ route('articles.index') }}" class="btn btn-secondary">
+      <i class="fa fa-list"></i> 글 목록
+    </a>
+  </div>
+@stop
+
+
+@section('script')
+  <script>
+    // app.blade.php 헤더에 CSRF 토큰을 읽어서 사용
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    $('.button__delete').on('click', function (e) {
+      var articleId = $('article').data('id');
+
+      if (confirm('글을 삭제합니다.')) {
+        $.ajax({
+          type: 'DELETE',
+          url: '/articles/' + articleId
+        }).then(function () {
+          window.location.href = '/articles';
+        });
+      }
+    });
+  </script>
 @stop

@@ -33,6 +33,8 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        // (명시적) 모델 바인딩
+        Route::model('article', \App\Article::class);
     }
 
     /**
