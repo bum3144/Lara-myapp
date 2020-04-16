@@ -8,7 +8,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
+        <!-- Styles -->
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+        @yield('style')
         <!-- Styles -->
         <style>
             html, body {
@@ -87,16 +92,27 @@
                     @include('flash::message')
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+
+                <div class="text-left action__article">
+                @guest
+                    <a href="{{ route('sessions.create') }}" class="btn btn-secondary">
+                        <i class="fa fa-list"></i> 로그인
+                    </a>
+                    <a href="{{ route('users.create') }}" class="btn btn-secondary">
+                        <i class="fa fa-list"></i> 회원가입
+                    </a>
+                @else
+                    <a class="btn btn-secondary" href="" 
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        로그아웃
+                    </a>
+                @endguest
+                    <a href="{{ route('articles.index') }}" class="btn btn-secondary">
+                    <i class="fa fa-list"></i> 포럼 글 목록 가기
+                    </a>
+
                 </div>
+
             </div>
         </div>
     </body>
