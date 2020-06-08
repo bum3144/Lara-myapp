@@ -1,32 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-  
+  @php $viewName = 'articles.show'; @endphp
+      
   <div class="page-header">
-    <h4>포럼<small> / {{ $article->title }}</small></h4>
+    <h4>
+      <a href="{{ route('articles.index') }}">포럼</a> 
+      <small> / {{ $article->title }}</small>
+    </h4>
   </div>  
   <hr/>
 
-  <article data-id="{{ $article->id }}">
-    @include('articles.partial.article', compact('article'))
+  <div class="row container__article">
+    <div class="col-md-3 sidebar__article">
+      <aside>
+        @include('tags.partial.index')
+      </aside>
+    </div>
 
-    <p>{!! nl2br(  markdown($article->content) ) !!}</p>    <hr />    
-  </article>
+    <div class="col-md-9 list__article">
+      <article data-id="{{ $article->id }}">
+        @include('articles.partial.article', compact('article'))
 
-  <div class="text-right action__article">
-  @can('update', $article)
-    <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-info">
-      <i class="fa fa-pencil"></i> 글 수정
-    </a>
-  @endcan
-  @can('delete', $article)
-    <button class="btn btn-danger button__delete">
-      <i class="fa fa-trash-o"></i> 글 삭제
-    </button>
-  @endcan
-    <a href="{{ route('articles.index') }}" class="btn btn-secondary">
-      <i class="fa fa-list"></i> 글 목록
-    </a>
+        <p>{!! nl2br(  markdown($article->content) ) !!}</p>    <hr />   
+
+        @include('tags.partial.list', ['tags' => $article->tags]) 
+      </article>
+
+      <div class="text-center action__article">
+      @can('update', $article)
+        <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-info">
+          <i class="fa fa-pencil"></i> 글 수정
+        </a>
+      @endcan
+      @can('delete', $article)
+        <button class="btn btn-danger button__delete">
+          <i class="fa fa-trash-o"></i> 글 삭제
+        </button>
+      @endcan
+        <a href="{{ route('articles.index') }}" class="btn btn-secondary">
+          <i class="fa fa-list"></i> 글 목록
+        </a>
+      </div>
+    </div>
   </div>
 @stop
 

@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
     @yield('style')
 
@@ -33,7 +33,7 @@
     <div id="app">
     @include('layouts.partial.navigation')
 
-        <div class="container">
+        <div class="container" id="app">
             @include('flash::message')
 
             @yield('content')
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 
     @yield('script')
 </body>

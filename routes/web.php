@@ -74,3 +74,8 @@ Route::get('social/{provider}', [
     'as' => 'social.login',
     'uses' => 'SocialController@execute'
 ]);
+
+Route::get('tags/{slug}/articles', [
+    'as' => 'tags.articles.index',
+    'uses' => 'ArticlesController@index'
+]);
