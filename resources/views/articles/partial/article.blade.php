@@ -8,9 +8,17 @@
             </a>
         </h4>
 
-        <p class="text-muted">
+        <p class="text-muted meta__article">
             <i class="fa fa-user"></i> {{ $article->user->name }} 
             <i class="fa fa-clock"></i> {{ $article->created_at->diffForHumans() }}
         </p>
+
+    @if ($viewName === 'articles.index')
+        @include('tags.partial.list', ['tags' => $article->tags])
+    @endif
+
+    @if ($viewName === 'articles.show')
+        @include('attachments.partial.list', ['attachments' => $article->attachments])
+    @endif
     </div>
 </div>

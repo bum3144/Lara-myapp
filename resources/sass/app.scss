@@ -9,6 +9,9 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
+// select2
+@import 'node_modules/select2/src/scss/core';
+
 // body {
 //   background-color: yellow;
 // }
@@ -192,6 +195,10 @@
       .xml .hljs-cdata {
         opacity: 0.5;
       }    
-
   // 이상 데일 리즈의 칼라 스킴에서 복사한 스타일시트
+
+  
+  .navbar-nav > li{
+    padding: 3px;
+  }
 }

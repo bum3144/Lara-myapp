@@ -2,11 +2,13 @@
 // 라라벨 내장 인증 라우트 삭제
 // Auth::routes();
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', [
     'as' => 'root',
     'uses' => 'WelcomeController@index'
     ]);
-    
+
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', [
     'as' => 'home',
@@ -74,3 +76,15 @@ Route::get('social/{provider}', [
     'as' => 'social.login',
     'uses' => 'SocialController@execute'
 ]);
+
+Route::get('tags/{slug}/articles', [
+    'as' => 'tags.articles.index',
+    'uses' => 'ArticlesController@index'
+]);
+
+
+Route::prefix('board')->group(function () {
+    Route::resource('board', 'BoardController');
+    Route::resource('a', 'AboardController');
+    Route::resource('calendar', 'CalendarController');
+});

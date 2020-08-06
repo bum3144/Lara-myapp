@@ -11,11 +11,21 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // App\User::create([
-        //     'name' => Str::random(10),
-        //     'email' => Str::random(10) . '@test.com',
-        //     'password' => bcrypt('password'),
-        // ]);
+        App\User::truncate();
+        
+        factory(App\User::class)->create([
+            // 'name' => Str::random(10),
+            // 'email' => Str::random(10) . '@test.com',
+            // 'password' => bcrypt('password'),
+            'name' => 'test1',
+            'email' => 'test1@test.com',
+            'activated' => 1
+        ]);
+        factory(App\User::class)->create([
+            'name' => 'test2',
+            'email' => 'test2@test.com',
+            'activated' => 1
+        ]);
         
         factory(App\User::class, 5)->create();
     }
