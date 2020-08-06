@@ -28,4 +28,4 @@ mix
 
 mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
    
-mix.browserSync({proxy: 'localhost:8000'});
+mix.browserSync({proxy: 'localhost:8002'});

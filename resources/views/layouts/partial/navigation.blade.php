@@ -11,7 +11,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a href="{{ route('articles.index') }}">포럼</a></li>
+                        <li><a href="{{ route('articles.index') }}">포럼 /</a></li>
+                        <li><a href="{{ route('board.index') }}">게시판</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -21,11 +22,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('sessions.create') }}">로그인</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.create') }}">회원가입</a>
                             </li>
-                          
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -17727,3 +17727,7 @@ readers do not read off random characters that represent icons */
   opacity: 0.5;
 }
 
+#app-layout .navbar-nav > li {
+  padding: 3px;
+}
+

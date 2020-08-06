@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 use App\Http\Requests\ArticlesRequest; // Illuminate\Http\Request; 대신 사용한다.
+use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
@@ -41,13 +42,38 @@ class ArticlesController extends Controller
 
    public function store(\App\Http\Requests\ArticlesRequest $request)
    {
+      // 글 저장
       //$article = \App\User::find(1)->articles()->create($request->all());
       $article = $request->user()->articles()->create($request->all());
 
       if(! $article) {
          return back()->with('flash_message', '글이 저장되지 않았습니다.')->withInput();
       }
+
+      // 태그 싱크
       $article->tags()->sync($request->input('tags'));
+
+
+      // 파일 저장
+      if ($request->hasFile('files')) {
+         $files = $request->file('files');
+
+         foreach($files as $file){
+            $filename = Str::random().filter_var($file->getClientOriginalName(), FILTER_SANITIZE_URL);
+            
+            // 순서 중요!! 
+            // 파일이 PHP의 임시 저장소에 있을 때만 getSize, getClientMimeType등이 동작하므로,
+            // 프로젝트의 파일 저장소로 업로드를 옮기기 전에 필요한 값을 취해야 한다.
+            $article->attachments()->create([
+               'filename' => $filename,
+               'bytes' => $file->getSize(),
+               'mime' => $file->getClientMimeType()
+            ]);
+
+            $file->move(attachments_path(), $filename);
+         }
+      }
+
 
       //var_dump('이벤트를 던집니다');
       event(new \App\Events\ArticlesEvent ($article));
