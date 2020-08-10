@@ -84,7 +84,7 @@ Route::get('tags/{slug}/articles', [
 
 
 Route::prefix('board')->group(function () {
-    Route::resource('board', 'BoardController');
-    Route::resource('a', 'AboardController');
-    Route::resource('calendar', 'CalendarController');
+    Route::resource('notice', 'Board\NoticeController');
+    Route::resource('photo', 'Board\PhotoController');
+    Route::resource('qna', 'Board\QnaController');
 });

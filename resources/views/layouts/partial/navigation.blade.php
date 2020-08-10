@@ -12,7 +12,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a href="{{ route('articles.index') }}">포럼 /</a></li>
-                        <li><a href="{{ route('board.index') }}">게시판</a></li>
+                        <li><a href="{{ route('notice.index') }}">게시판</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

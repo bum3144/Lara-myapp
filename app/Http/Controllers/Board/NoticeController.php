@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Board;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboardController extends Controller
+class NoticeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,7 @@ class AboardController extends Controller
      */
     public function index()
     {
-        // return "Hello Aboard ~!!";
-        return view('board.a');
+        return view('board.notice');
     }
 
     /**
